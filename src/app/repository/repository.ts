@@ -17,8 +17,7 @@ export class Repository<T> {
   }
 
   Add(entity: T, options: any) {
-    //console.log(options);
-    //console.log(JSON.stringify(entity));
+    console.log(this._uri);
     return this.http
     .post(this._uri, JSON.stringify(entity), options)
     .map(res => res.json());

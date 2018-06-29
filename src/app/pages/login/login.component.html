@@ -12,26 +12,14 @@
         <form>
             <div class="form-group">
                 <label class="text-normal text-dark">Username</label>
-                <input type="email" class="form-control" placeholder="John Doe">
+                <input type="email" class="form-control" placeholder="Digite aqui seu usuários" [(ngModel)]="loginObj.usuario" name="usuario">
             </div>
             <div class="form-group">
                 <label class="text-normal text-dark">Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Digite aqui sua senha" [(ngModel)]="loginObj.senha" name="senha">
             </div>
             <div class="form-group">
-                <div class="peers ai-c jc-sb fxw-nw">
-                    <div class="peer">
-                        <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                            <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
-                            <label for="inputCall1" class=" peers peer-greed js-sb ai-c">
-                  <span class="peer peer-greed">Remember Me</span>
-                </label>
-                        </div>
-                    </div>
-                    <div class="peer">
-                        <button class="btn btn-primary" (click)="comum.login()">Login</button>
-                    </div>
-                </div>
+                <button class="btn btn-primary" (click)="login()">Login</button>
             </div>
         </form>
     </div>

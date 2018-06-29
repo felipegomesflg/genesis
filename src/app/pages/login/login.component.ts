@@ -9,8 +9,21 @@ import{ ComumService} from '../../services/comum.service'
 export class LoginComponent implements OnInit {
 
   constructor(public comum:ComumService) { }
-
+  loginObj :any = {usuario:"",senha:""}
   ngOnInit() {
+  }
+
+  login(){
+
+    this.comum.data.addEntity(this.loginObj,'usuario/login').subscribe(val=>{
+      if(val.id){
+        this.comum.loggedGet = true;
+        this.comum.router.navigate([ '/home' ]);
+      }else
+      this.comum.alertaErro('Login ou senha incorretos');
+      
+    });
+    
   }
 
   

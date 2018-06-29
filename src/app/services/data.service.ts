@@ -17,7 +17,7 @@ export class DataService {
   
 
   constructor(private http: Http, ) {
-    this.baseUrl = 'http://localhost:3000/api';
+    this.baseUrl = 'http://localhost:8000/';
     this.headers = new Headers();
     this.headers.append("Content-Type", "application/json");
     this.headers.append('Access-Control-Allow-Methods', '*');
@@ -36,7 +36,7 @@ export class DataService {
 
 
   private getBaseUrl(path) {
-    if (path) return  this.baseUrl + "/" + path;
+    if (path) return  this.baseUrl + "/api/" + path;
     else return '';
   }
 

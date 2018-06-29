@@ -3,15 +3,18 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from 'angular-2-local-storage'
 import {Subject} from 'rxjs/Subject';
 
+import {DataService} from './data.service';
+
 import { NgbModal,NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 
 @Injectable()
 export class ComumService {
 
   constructor(
-    private router: Router, 
-    private modalService: NgbModal,
-    private localStorage:LocalStorageService
+    public router: Router, 
+    public modalService: NgbModal,
+    public localStorage:LocalStorageService,
+    public data:DataService
   ) { }
 
   public isLogged:any = false;
@@ -22,11 +25,7 @@ export class ComumService {
 
   menuToggle = new EventEmitter<boolean>();
 
-  login(){
-    this.loggedGet = true;
-    this.router.navigate([ '/home' ]);
-  }
-
+  
   logout(){
     this.router.navigate(['/login']);
     this.loggedGet = false;
@@ -46,6 +45,9 @@ export class ComumService {
     );
   }
 
+  alertaErro(msg){
+    alert(msg)
+  }
   
   set loggedGet(value) {
     this.localStorage.set('isLogged', value);
